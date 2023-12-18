@@ -26,7 +26,7 @@ const startOver = document.querySelector('#start-over-button');
 sketch.addEventListener('click', setSketch());
 eraser.addEventListener('click', setEraser());
 adjustSize.addEventListener('click', setSize());
-startOver.addEventListener('click', reset());
+startOver.addEventListener('click', resetSketch());
 
 generateGrid(16, 16);
 
