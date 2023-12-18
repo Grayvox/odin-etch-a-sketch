@@ -1,5 +1,4 @@
 const container = document.querySelector('#container');
-const adjustSizeBtn = document.querySelector('#adjust-size-button');
 
 function generateGrid(rowSize, colSize) {
     let grid = [];
@@ -16,8 +15,18 @@ function generateGrid(rowSize, colSize) {
         grid[i].append(...boxes);
 
     }
-    container.append(...grid);
+    return grid;
 }
+
+const sketch = document.querySelector('#sketch-button');
+const eraser = document.querySelector('#erase-button');
+const adjustSize = document.querySelector('#adjust-size-button');
+const startOver = document.querySelector('#start-over-button');
+
+sketch.addEventListener('click', setSketch());
+eraser.addEventListener('click', setEraser());
+adjustSize.addEventListener('click', setSize());
+startOver.addEventListener('click', reset());
 
 generateGrid(16, 16);
 
