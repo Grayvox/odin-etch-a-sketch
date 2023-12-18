@@ -15,7 +15,7 @@ function generateGrid(rowSize, colSize) {
         grid[i].append(...boxes);
 
     }
-    return grid;
+    container.append(...grid);
 }
 
 const sketch = document.querySelector('#sketch-button');
@@ -23,10 +23,18 @@ const eraser = document.querySelector('#erase-button');
 const adjustSize = document.querySelector('#adjust-size-button');
 const startOver = document.querySelector('#start-over-button');
 
-sketch.addEventListener('click', setSketch());
-eraser.addEventListener('click', setEraser());
-adjustSize.addEventListener('click', setSize());
-startOver.addEventListener('click', resetSketch());
+console.log(startOver);
+
+// sketch.addEventListener('click', setSketch());
+// eraser.addEventListener('click', setEraser());
+// adjustSize.addEventListener('click', setSize());
+
+function resetSketch() {
+    const boxes = document.querySelectorAll(".boxes");
+    Array.from(boxes).forEach((box) =>
+        box.setAttribute("style", "background-color: white;")
+    );
+}
 
 generateGrid(16, 16);
 
