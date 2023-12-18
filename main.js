@@ -23,11 +23,19 @@ const eraser = document.querySelector('#erase-button');
 const adjustSize = document.querySelector('#adjust-size-button');
 const startOver = document.querySelector('#start-over-button');
 
-console.log(startOver);
-
 // sketch.addEventListener('click', setSketch());
 // eraser.addEventListener('click', setEraser());
 // adjustSize.addEventListener('click', setSize());
+
+function setSize() {
+    let size = parseInt(prompt('Thou must entereth a new size! (Maximum: 100)'));
+    if (size <= 100) {
+        container.innerHTML = '';
+        generateGrid(size, size);
+    } else {
+        alert('Thou did not heed my warning!');
+    }
+}
 
 function resetSketch() {
     const boxes = document.querySelectorAll(".boxes");
