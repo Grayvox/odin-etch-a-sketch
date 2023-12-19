@@ -44,8 +44,13 @@
     background-color: white;
 }
 
-.grid-box {
+#container > div {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
+
+#container > div > * {
+    flex: 1;
+}
+

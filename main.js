@@ -1,4 +1,7 @@
 const container = document.querySelector('#container');
+const gridLength = 16;
+const gridWidth = 16;
+let drawingState;
 
 function generateGrid(rowSize, colSize) {
     let grid = [];
@@ -18,27 +21,41 @@ function generateGrid(rowSize, colSize) {
     container.append(...grid);
 }
 
-// sketch.addEventListener('click', setSketch());
-// eraser.addEventListener('click', setEraser());
+function setDrawEffect() {
+    let getBoxes = document.querySelectorAll('.grid-box');
+
+    let mouseOverEvent = (e) => {
+        e.target.style.cssText = `background-color: #000000`;
+    }
+
+    getBoxes.forEach((item) => {
+        item.addEventListener('mouseover', mouseOverEvent)
+    });
+}
+
+// sketch.addEventListener('click', setSketchMode());
+// eraser.addEventListener('click', setEraserMode());
 
 function setSize() {
     let size = parseInt(prompt('Thou must entereth a new size! (Maximum: 100)'));
     if (size <= 100) {
         container.innerHTML = '';
         generateGrid(size, size);
+        setDrawEffect();
     } else {
         alert('Thou did not heed my warning!');
     }
 }
 
 function resetSketch() {
-    const boxes = document.querySelectorAll(".boxes");
-    Array.from(boxes).forEach((box) =>
+    const boxes = document.querySelectorAll(".grid-box");
+    Array.from(boxes).forEach(box =>
         box.setAttribute("style", "background-color: white;")
     );
 }
 
-generateGrid(16, 16);
+generateGrid(gridLength, gridWidth);
+setDrawEffect();
 
 
 
