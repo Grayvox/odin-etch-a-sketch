@@ -1,7 +1,7 @@
 const container = document.querySelector('#container');
 const gridLength = 16;
 const gridWidth = 16;
-let drawingState;
+let currentState;
 
 function generateGrid(rowSize, colSize) {
     let grid = [];
@@ -25,7 +25,11 @@ function setDrawEffect() {
     let getBoxes = document.querySelectorAll('.grid-box');
 
     let mouseOverEvent = (e) => {
-        e.target.style.cssText = `background-color: #000000`;
+        if (currentState === 'eraser') {
+            e.target.style.cssText = `background-color: #ffffff`;
+        } else {
+            e.target.style.cssText = `background-color: #000000`;
+        }
     }
 
     getBoxes.forEach((item) => {
@@ -35,6 +39,10 @@ function setDrawEffect() {
 
 // sketch.addEventListener('click', setSketchMode());
 // eraser.addEventListener('click', setEraserMode());
+
+function setEraserMode() {
+    currentState = 'eraser';
+}
 
 function setSize() {
     let size = parseInt(prompt('Thou must entereth a new size! (Maximum: 100)'));
