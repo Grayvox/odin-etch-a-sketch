@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 
 .bg {
+    background-image: url(./img/sketch-background-castle.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #1B2452;
 }
 
 .game-page {
