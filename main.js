@@ -28,7 +28,8 @@ function setDrawEffect() {
         if (currentState === 'eraser') {
             e.target.style.cssText = `background-color: #ffffff`;
         } else {
-            e.target.style.cssText = `background-color: #000000`;
+            let randomColor = Math.floor(Math.random()*16777215).toString(16);
+            e.target.style.cssText = `background-color: #${randomColor}`;
         }
     }
 
@@ -38,7 +39,10 @@ function setDrawEffect() {
 }
 
 // sketch.addEventListener('click', setSketchMode());
-// eraser.addEventListener('click', setEraserMode());
+
+function setSketchMode() {
+    currentState = '';
+}
 
 function setEraserMode() {
     currentState = 'eraser';
